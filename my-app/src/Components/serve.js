@@ -26,4 +26,27 @@ app.post('/findUser', async function (req, res) {
     let userArray = await userData.getUser( userInfo.name, userInfo.password).then((result)=>{console.log(result);res.json(result)})
 });
 
+app.post('/findComment', async function (req, res) {
+    const userInfo = req.body;
+    let userArray = await userData.getAllComment().then((result)=>{console.log(result);res.json(result)})
+});
+
+app.post('/addComment', async function (req, res) {
+    const userInfo = req.body;
+    let Array = await userData.addComment(userInfo);
+    res.json(Array);
+});
+
+app.post('/addL', async function (req, res) {
+    const userInfo = req.body;
+    let Array = await userData.UpdateAllLike(userInfo).then((result)=>{console.log(result);res.json(result)});
+});
+app.post('/favor', async function (req, res) {
+    const userInfo = req.body;
+    let Array = await userData.GetAllLike().then((result)=>{console.log(result);res.json(result)});
+});
+app.post('/addD', async function (req, res) {
+    const userInfo = req.body;
+    let Array = await userData.UpdateAllDislike(userInfo).then((result)=>{console.log(result);res.json(result)});
+});
 app.listen(4000);
