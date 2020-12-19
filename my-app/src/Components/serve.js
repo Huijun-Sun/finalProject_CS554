@@ -15,6 +15,9 @@ app.use(express.json());
 app.post('/createUser', function (req, res) {
     const userInfo = req.body;
     console.dir(userInfo);
+    if(userInfo.name == '') throw "Username cannot be null";
+    if(userInfo.email== '') throw "User email cannot be null";
+    if(userInfo.password == '') throw "User password cannot be null";
     userData.addUser( userInfo.name, userInfo.email, userInfo.password);
     //userData.addUser("273d7bb6-6a3c-4e75-8b3d-a0df1887f5df", "Zehui", "zzhao56@stevens.edu","zzh1996");
 });
@@ -33,6 +36,8 @@ app.post('/findComment', async function (req, res) {
 
 app.post('/addComment', async function (req, res) {
     const userInfo = req.body;
+    if(userInfo.title == ''){ throw "title cannot be null";}
+    if(!userInfo.content == ''){ throw "content cannot be null";}
     let Array = await userData.addComment(userInfo);
     res.json(Array);
 });

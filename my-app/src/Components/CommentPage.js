@@ -9,10 +9,9 @@ class CommentPage extends React.Component {
       title: '',
       content: '',
       comments: [],
-      ComShown: 0
+      ComShown: 1
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.fetchComment();
   };
   handleChange = (e) => {
     this.setState({
@@ -28,12 +27,12 @@ class CommentPage extends React.Component {
   }
   revealCom = () => {
     gsap.to(".comment-show", {
-      duration: 1,
+      duration: 0.5,
       y: 0,
       height: '50vh',
     });
-    gsap.to('.checkbut', {
-      duration: 1.5,
+    gsap.to('.show', {
+      duration: 0.5,
     });
     let InfoShown = { ...this.state.ComShown };
     InfoShown = 1;
@@ -42,12 +41,12 @@ class CommentPage extends React.Component {
 
   hideCom = () => {
     gsap.to(".comment-show", {
-      duration: 1,
+      duration: 0.5,
       y: 1000,
       height: 0,
     });
-    gsap.to('.checkbut', {
-      duration: 1.5,
+    gsap.to('.show', {
+      duration: 0.5,
     });
     let InfoShown = { ...this.state.ComShown };
     InfoShown = 0;
@@ -55,6 +54,7 @@ class CommentPage extends React.Component {
   }
 
   runCommentAnimation = () => {
+    this.fetchComment();
     if (this.state.ComShown === 0) {
       this.revealCom();
     }
@@ -83,6 +83,7 @@ class CommentPage extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    var flag = 1;
     const data = { title: this.state.title, content: this.state.content }
     console.log(JSON.stringify(data));
     fetch('http://localhost:4000/addComment', {
@@ -90,14 +91,20 @@ class CommentPage extends React.Component {
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     });
-    this.fetchComment();
-    this.props.history.push('/comment');
+    if(this.state.title == ''){alert("The title cannot be null"); flag = 0;}
+    if(this.state.content == ''){alert("The content cannot be null"); flag = 0;}
+    if(flag){
+      this.fetchComment();
+      this.props.history.push('/comment');
+    }else{
+      alert("Submit Failed");
+    }
   }
   render() {
     var Com = [];
-    if(this.state.comments){
-      for( var i = 0; i<this.state.comments.length; i++){
-         Com.push(<h3 className="comment-dom">{this.state.comments[i].title} : {this.state.comments[i].content}</h3>);
+    if (this.state.comments) {
+      for (var i = 0; i < this.state.comments.length; i++) {
+        Com.push(<h3 className="comment-dom">{this.state.comments[i].title} : {this.state.comments[i].content}</h3>);
       }
     }
     return (
@@ -110,7 +117,7 @@ class CommentPage extends React.Component {
             </div>
           </div>
           <div className="center-container">
-            <h2 className="welcome-text">WELCOME TO THE COMMENT CARVEN</h2>
+            <h2 className="welcome-text">WELCOME TO THE COMMENT BAR</h2>
             <div className="comment-pull">
               <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
@@ -132,9 +139,11 @@ class CommentPage extends React.Component {
             </div>
           </div>
           <br />
-          <div className="comment-show">
+          <div className="show">
             <button className="grey-button-like" onClick={this.runCommentAnimation}>Show Previous Comment</button>
-            <div className = "comment-playground">{Com}</div>
+          </div>
+          <div className="comment-show">
+            <div className="comment-playground">{Com}</div>
           </div>
         </div>
       </>

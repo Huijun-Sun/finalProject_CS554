@@ -54,11 +54,11 @@ let exportedMethods = {
     if (!commentinfolist) throw 'No Comment!';
     return commentinfolist;
   },
-  async SetAllLike() {
+  async SetAllLike(num) {
     const likeCollection = await favor();
     let newLike = {
-      like: 0,
-      dislike: 0
+      like: num,
+      dislike: num
     };
     const newInsertInformation = await likeCollection.insertOne(newLike);
     if (newInsertInformation.insertedCount === 0) throw 'Insert failed!';
