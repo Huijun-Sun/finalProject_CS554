@@ -1,21 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const React = require("react");
+const PropTypes = require("prop-types");
 class ChampionTips extends React.Component {
-  static propTypes = {
-    details: PropTypes.object,
-  };
-
-  render() {
-    return (
-      <div className="info-box">
-        <h4 className="info-h4">Ally Tips</h4>
-        <p className="info-paragraph">{this.props.details.allytips}</p>
-        <h4 className="info-h4">Enemy Tips</h4>
-        <p className="info-paragraph">{this.props.details.enemytips}</p>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (jsx_runtime_1.jsxs("div", Object.assign({ className: "info-box" }, { children: [jsx_runtime_1.jsx("h4", Object.assign({ className: "info-h4" }, { children: "Ally Tips" }), void 0),
+                jsx_runtime_1.jsx("p", Object.assign({ className: "info-paragraph" }, { children: this.props.details.allytips }), void 0),
+                jsx_runtime_1.jsx("h4", Object.assign({ className: "info-h4" }, { children: "Enemy Tips" }), void 0),
+                jsx_runtime_1.jsx("p", Object.assign({ className: "info-paragraph" }, { children: this.props.details.enemytips }), void 0)] }), void 0));
+    }
 }
-
-export default ChampionTips;
+ChampionTips.propTypes = {
+    details: PropTypes.object,
+};
+exports.default = ChampionTips;
