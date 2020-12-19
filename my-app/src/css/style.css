@@ -127,6 +127,14 @@ border-color:#cea212;
 background-color: #1d1d1d;
 color: #cea212;
 }
+.input {
+  padding:10px;
+  margin:15px;
+  border-radius: 5px;
+  width:80%;
+  height: 25px;
+  font-size:20px;
+}
 .input-comment {
   padding:10px;
   margin:15px;
