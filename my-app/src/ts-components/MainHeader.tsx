@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Searchbox from './Searchbox';
 import * as PropTypes from 'prop-types';
-
-
+import ButtonC from '../Components/ButtonP';
+import { Link } from 'react-router-dom';
 interface MainHeaderProps {
   searchChange:any;
 }
@@ -29,6 +29,14 @@ class MainHeader extends React.Component<MainHeaderProps> {
           </div>
           <div className="mainheader-search">
             <Searchbox {...SearchboxProps} />
+          </div>
+          <div className="mainheader-favor">
+            <ButtonC/>
+            <button className="grey-button-like">
+                <Link to='comment' className='link-button'>
+                Comment
+                </Link>
+            </button>
           </div>
         </div>
       </div>
