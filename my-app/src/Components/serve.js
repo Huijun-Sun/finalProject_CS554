@@ -1,10 +1,14 @@
+const bluebird = require('bluebird');
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const data = require('../userData');
 const userData = data.users;
-
+const redis = require('redis');
+const client = redis.createClient();
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
 var app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +22,9 @@ app.post('/createUser', function (req, res) {
     if(userInfo.name == '') throw "Username cannot be null";
     if(userInfo.email== '') throw "User email cannot be null";
     if(userInfo.password == '') throw "User password cannot be null";
+    var loginDate = new Date();
+    var loginTime = loginDate.toLocaleString();
+    client.setAsync(loginTime,userInfo.name);
     userData.addUser( userInfo.name, userInfo.email, userInfo.password);
     //userData.addUser("273d7bb6-6a3c-4e75-8b3d-a0df1887f5df", "Zehui", "zzhao56@stevens.edu","zzh1996");
 });
@@ -26,6 +33,9 @@ app.post('/findUser', async function (req, res) {
     const userInfo = req.body;
     console.dir(userInfo.name);
     console.dir(userInfo.password);
+    var loginDate = new Date();
+    var loginTime = loginDate.toLocaleString();
+    client.setAsync(loginTime,userInfo.name);
     let userArray = await userData.getUser( userInfo.name, userInfo.password).then((result)=>{console.log(result);res.json(result)})
 });
 
