@@ -61,22 +61,29 @@ h4 {
   font-family: "Staatliches", sans-serif;
   font-weight: 12;
   color: #cea212;
-  font-size: 18px;
+  font-size: 22px;
   padding-top: 2vh;
   text-align: center;
 }
 .comment-text-title{
-  border-color: #cea212;
-  border-style: solid;
-  border-width: 3px;
-  width:10%;
+  padding:10px;
+  border-radius: 5px;
+  height: 20px;
+  font-size:15px;
+  border-color:#cea212;
+  background-color: #1d1d1d;
+  color: #cea212;
+  width:15%;
 }
 .comment-text-content{
   border-color: #cea212;
   border-style: solid;
   border-width: 3px;
-  width:20%;
+  padding:10px;
+  margin:15px;
+  width:40%;
   height: 10vh;
+  font-size:18px;
 }
 .comment-show{
   background-image: url("/images/league-background.jpg");
@@ -108,6 +115,40 @@ h4 {
     padding-bottom: 10px;
     padding-top: 10px;
 }
+.loginForm{
+  text-align:right; 
+  float: right;
+  width: 600px;
+  height: 450px;
+}
+
+input {
+border-color:#cea212;
+background-color: #1d1d1d;
+color: #cea212;
+}
+.input-comment {
+  padding:10px;
+  margin:15px;
+  border-radius: 5px;
+  width:80%;
+  height: 20px;
+  font-size:20px;
+  border-color:#cea212;
+  background-color: #1d1d1d;
+  color: #cea212;
+  }
+textarea{
+  padding:10px;
+  border-radius: 5px;
+  border-color:#cea212;
+  background-color: #1d1d1d;
+  color: #cea212;
+}
+::-webkit-input-placeholder {
+color: #cea212;
+}
+
 /*Grey Button*/
 .grey-button {
     background: #1d1d1d;
@@ -222,6 +263,71 @@ h4 {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
+  .show{
+    text-align: center;
+    padding: 5px;
+  }
+  .button{
+    background: #1d1d1d;
+      margin-right: 414px;
+      margin-top: 10px;
+      font-family: "Staatliches", sans-serif;
+      font-size: 18px;
+      color: #cea212;
+      border-color: #cea212;
+      border-style: solid;
+      border-width: 1px;
+      padding: 3px 25px 3px 25px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      position: relative;
+      -webkit-transition-property: color;
+      transition-property: color;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  
+  .button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cea212;
+    border: #1d1d1d solid 1px;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  
+  .button:hover,
+  .button:focus,
+  .button:active {
+      color: #1d1d1d;
+    }
+  
+  .button:hover:before,
+  .button:focus:before,
+  .button:active:before {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  
   .link-button{
     font-family: "Staatliches", sans-serif;
     font-weight: 100;
@@ -299,9 +405,7 @@ h4 {
     border-radius: 7px;
     border: #cea212 solid 3px;
   }
-  .show{
-    text-align: center;
-  }
+
   /* Main Content */
   .maincontent-container {
     height: 62%;
@@ -754,92 +858,7 @@ h4 {
   }
 
 
-.loginForm{
-    text-align:right; 
-    float: right;
-    width: 600px;
-    height: 450px;
-}
-
-
-
-input {
-  padding:10px;
-  margin:15px;
-  border-radius: 5px;
-  width:80%;
-  height: 25px;
-  font-size:20px;
-  border-color:#cea212;
-  background-color: #1d1d1d;
-  color: #cea212;
-}
-
-::-webkit-input-placeholder {
-  color: #cea212;
-}
-
-button{
-  background: #1d1d1d;
-    margin-right: 414px;
-    margin-top: 10px;
-    font-family: "Staatliches", sans-serif;
-    font-size: 18px;
-    color: #cea212;
-    border-color: #cea212;
-    border-style: solid;
-    border-width: 1px;
-    padding: 3px 25px 3px 25px;
-    height: 40px;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #cea212;
-  border: #1d1d1d solid 1px;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-button:hover,
-button:focus,
-button:active {
-    color: #1d1d1d;
-  }
-
-button:hover:before,
-button:focus:before,
-button:active:before {
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
-
+ 
  
 
  
