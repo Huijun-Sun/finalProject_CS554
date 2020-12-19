@@ -79,33 +79,33 @@ class Login extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="welcome-container">
-                 <div>  
-                <form onSubmit={this.handleSubmit}>
-                    <label  htmlFor="name">Enter name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input id="name" name="name" type="text" onChange={this.handleChange}/>
+                <div className="welcome-container" >
+                 <div >  
+                <form onSubmit={this.handleSubmit} class="loginForm">
+                    <label  htmlFor="name" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="name" name="name" type="text" placeholder = "Username" onChange={this.handleChange}/>
                     <br/>
-                    <label htmlFor="email">Enter your email&nbsp;&nbsp;</label>
-                    <input id="email" name="email" type="email" onChange={this.handleChange}/>
+                    <label htmlFor="email">&nbsp;&nbsp;</label>
+                    <input id="email" name="email" type="email" placeholder = "Email" onChange={this.handleChange}/>
                     <br/>
-                    <label htmlFor="password">Enter a password&nbsp;</label>
-                    <input id="password" name="password" type="text" onChange={this.handleChange}/>
+                    <label htmlFor="password">&nbsp;</label>
+                    <input id="password" name="password" type="text" placeholder = "password" onChange={this.handleChange}/>
                     <br/>
-                    <button>Sign Up!</button>
+                    <button >Sign Up!</button>
                 </form>
                 </div> 
                 <br/>
                 <br/>
                 <div> 
-                <form onSubmit={this.HandleSubmit}>
-                    <label htmlFor="signinName">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input id="signinName" name="signinName" type="text" onChange={this.handleChange}/>
+                <form onSubmit={this.HandleSubmit} class="loginForm">
+                    <label htmlFor="signinName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="signinName" name="signinName" type="text" placeholder = "Username" onChange={this.handleChange}/>
                     <br/>
-                    <label htmlFor="signinPassword">Password</label>
-                    <input id="signinPassword" name="signinPassword" type="text" onChange={this.handleChange}/>
+                    <label htmlFor="signinPassword"></label>
+                    <input id="signinPassword" name="signinPassword" type="text" placeholder = "password" onChange={this.handleChange}/>
                     <br/>
                     <br/>
-                    <button>Sign In!</button>
+                    <button >Sign In!</button>
                 </form>
                 </div>
                 </div>
