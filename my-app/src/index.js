@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 import Router from './Components/Router';
 import * as serviceWorker from './serviceWorker';
 import './css/style.css';
-import './css/logoanimate.css';
 
 window.addEventListener('resize', () => {
   let vh = window.innerHeight * 0.01;
