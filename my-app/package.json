@@ -36,6 +36,7 @@
   "scripts": {
     "start": "react-scripts start",
     "seeds": "node ./src/userData/task.js",
+    "sever": "node ./src/Components/serve.js",
     "build": "react-scripts build",
     "tsc-build": "tsc",
     "test": "react-scripts test",
